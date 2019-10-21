@@ -241,16 +241,18 @@
     padding: 0 20px;
 
     ul {
-      display: block;
+      @supports (display: grid) {
+        grid-template-columns: 1fr;
+      }
     }
 
-    li + li {
-      margin-top: 52px;
+    a {
+      height: size-mobile(235px);
     }
 
     li {
       width: 100%;
-      margin-bottom: 0;
+      margin-bottom: 52px;
     }
   }
 }
