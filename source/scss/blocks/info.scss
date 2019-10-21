@@ -1,0 +1,47 @@
+.info {
+  padding-top: size-desktop-lg(210px);
+  margin-top: -80px;
+  background: $white;
+
+  text-align: center;
+
+  h2 {
+    @include title-reset;
+    font-size: 46px;
+    line-height: 55px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  p {
+    @include title-reset;
+    font-weight: 300;
+    width: 88%;
+    margin: 0 auto;
+    margin-bottom: 45px;
+  }
+
+  @include desktop-lg {
+    h2 {
+      font-size: size-desktop-lg(46px);
+      line-height: size-desktop-lg(55px);
+    }
+  }
+
+  @include mobile {
+    margin-top: 0;
+
+    h2 {
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}

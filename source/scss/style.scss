@@ -1,0 +1,15 @@
+// vendor
+@import "vendor/normalize.scss";
+
+// general
+@import "general/variables.scss";
+@import "general/mixins.scss";
+@import "general/fonts.scss";
+@import "general/functions.scss";
+@import "general/global.scss";
+
+//blocks
+@import "blocks/main-section.scss";
+@import "blocks/info.scss";
+@import "blocks/catalog.scss";
+@import "blocks/read-more.scss";

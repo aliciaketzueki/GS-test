@@ -1,0 +1,14 @@
+a[href].read-more {
+  @include link-reset;
+  @include hover;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: $denim;
+
+  @include desktop-lg {
+    font-size: size-desktop-lg(16px);
+    line-height: size-desktop-lg(24px);
+  }
+}

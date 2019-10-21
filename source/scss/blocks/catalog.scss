@@ -1,0 +1,256 @@
+.catalog {
+  padding-top: size-desktop-lg(150px);
+  padding-bottom: 170px;
+  overflow: hidden;
+  min-height: 120vh;
+  position: relative;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h2 {
+    @include title-reset;
+    font-size: 46px;
+    line-height: 34px;
+    margin-bottom: 35px;
+    margin-right: 50px;
+  }
+
+  @include desktop-lg {
+    h2 {
+      font-size: size-desktop-lg(46px);
+      line-height: size-desktop-lg(34px);
+    }
+  }
+
+  @include mobile {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    h2 {
+      margin-right: 0;
+      text-align: center;
+      font-size: 35px;
+      line-height: 40px;
+    }
+  }
+}
+
+.catalog__filter {
+  @include list-reset;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+
+  .simplebar-wrapper,
+  .simplebar-content {
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    li button[type="button"] {
+      margin-top: 0;
+    }
+  }
+
+  li + li {
+    margin-left: 37px;
+  }
+
+  li {
+    flex-shrink: 0;
+  }
+
+  button[type="button"] {
+    @include button-reset;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 34px;
+    color: $silver;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  button[type="button"]:not(.active) {
+    @include hover;
+  }
+
+  button[type="button"].active {
+    padding: 7px 50px;
+    margin-top: -7px;
+    margin-right: -10px;
+    background-color: $bahama-blue;
+    color: $white;
+    box-shadow: 0 6px 24px 0 rgba(19, 120, 191, 0.5);
+  }
+
+  @include desktop-lg {
+    li + li {
+      margin-left: size-desktop-lg(37px);
+    }
+
+    button[type="button"] {
+      font-size: size-desktop-lg(16px);
+      line-height: size-desktop-lg(34px);
+      border-radius: size-desktop-lg(30px);
+    }
+
+    button[type="button"].active {
+      padding: size-desktop-lg(7px) size-desktop-lg(50px);
+      margin-top: size-desktop-lg(-7px);
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    display: block;
+
+    .simplebar-wrapper {
+      display: block;
+    }
+
+    .simplebar-content-wrapper {
+      padding: 20px 20px;
+      width: 100%;
+    }
+
+    .simplebar-content {
+      display: flex;
+      align-items: center;
+      width: auto;
+    }
+
+    li:last-of-type {
+      padding-right: 30px;
+    }
+
+    button[type="button"].active {
+      margin-top: 0;
+    }
+  }
+}
+
+.catalog__grid {
+  width: 100%;
+  padding-top: 50px;
+  transition: opacity $transition, transform 0.5s ease;
+
+  &.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity $transition, transform 0.5s ease;
+  }
+
+  ul {
+    @include list-reset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-column-gap: 30px;
+      grid-row-gap: 52px;
+      justify-content: inherit;
+    }
+  }
+
+  li {
+    width: 31.5%;
+    margin-bottom: 52px;
+
+    @supports (display: grid) {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+    
+  li.hidden {
+    display: none;
+  }
+
+  a {
+    @include link-reset;
+    display: block;
+    height: 235px;
+    background-color: rgba(250, 250, 250, 1);
+    background-position: 0 -100px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: background-color $transition, background-image $transition, opacity $transition;
+    }
+  }
+
+  a.active::after,
+  a:hover::after {
+    background-color: #146dad;
+    background-image: linear-gradient(to right, #0e65a2, #1d7bbd);
+    opacity: 1;
+    background-position: 0 0;
+  }
+
+  h3 {
+    @include title-reset;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-top: 16px;
+  }
+
+  p {
+    @include title-reset;
+    font-size: 16px;
+    line-height: 22px;
+    color: $gray;
+  }
+
+  @include desktop-lg {
+    a {
+      height: size-desktop-lg(235px);
+    }
+
+    h3 {
+      font-size: size-desktop-lg(18px);
+      line-height: size-desktop-lg(22px);
+    }
+
+    p {
+      font-size: size-desktop-lg(16px);
+      line-height: size-desktop-lg(22px);
+    }
+  }
+
+  @include mobile {
+    padding: 0 20px;
+
+    ul {
+      display: block;
+    }
+
+    li + li {
+      margin-top: 52px;
+    }
+
+    li {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
